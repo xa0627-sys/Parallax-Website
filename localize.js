@@ -1,6 +1,6 @@
 (function () {
   const LOCALE = 'zh'; // 預設中文
-  const LOCALE_PATH = '/locales/' + LOCALE + '.json';
+  const LOCALE_PATH = 'locales/' + LOCALE + '.json';  // 拿掉前面的斜線
 
   try { document.documentElement.lang = 'zh-Hant'; } catch (e) { }
 
