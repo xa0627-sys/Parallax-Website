@@ -1,0 +1,44 @@
+{
+  "title": "Parallax 視差網站",
+  "nav": {
+    "logo": "Parallax",
+    "home": "首頁",
+    "about": "關於",
+    "contact": "聯絡"
+  },
+  "hero": {
+    "title": "\"擁抱刺激\"<br>XA-VibeCoding",
+    "subtitle": "漂亮的滾動與沉浸式視差效果",
+    "cta": "探索"
+  },
+  "main": {
+    "heading": "視差滾動效果",
+    "byline": "作者：Vineet Kumar"
+  },
+  "what_is": {
+    "title": "什麼是視差滾動？",
+    "p1": "視差滾動是一種網頁設計技術，透過讓背景以比前景更慢的速度移動，產生類似 3D 的深度感，讓使用者在滾動時有更沉浸的瀏覽體驗。"
+  },
+  "why_use": {
+    "title": "為什麼要使用視差？",
+    "item1_title": "有助於說故事",
+    "item1_p": "視差效果適合用於敘事式設計，可將使用者帶入單頁式的沉浸式體驗。",
+    "item2_title": "提升使用者互動",
+    "item2_p": "良好的視差設計能延長使用者停留時間並提升互動性，但也要避免過度使用以免分散注意力。"
+  },
+  "tips": {
+    "title": "使用小技巧",
+    "li1": "選擇性使用：只在重點區塊使用視差。",
+    "li2": "壓縮圖片：優化資源以維持效能。",
+    "li3": "配色：利用前後景色差強化深度感。"
+  },
+  "footer": {
+    "follow": "追蹤我：",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "portfolio": "作品集",
+    "credit": "由 Vineet Kumar 製作 ❤️\nSSN 工程學院 資訊系 四年級",
+    "bubble_alt": "氣泡"
+  }
+}
