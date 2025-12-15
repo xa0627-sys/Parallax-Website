@@ -6,6 +6,12 @@ var fish2move = 100;
 var fish3move = 900;
 var fish4move = 1200;
 
+// Capture initial fish top offsets to enable vertical motion
+const fish1BaseTop = parseFloat(getComputedStyle(fish1).top);
+const fish2BaseTop = parseFloat(getComputedStyle(fish2).top);
+const fish3BaseTop = parseFloat(getComputedStyle(fish3).top);
+const fish4BaseTop = parseFloat(getComputedStyle(fish4).top);
+
 if (screen.width < 400) {
 
     //Change transformation duration and translatey for mobile view
@@ -49,11 +55,11 @@ window.addEventListener('scroll', function () {
         splash.style.top = 20 + value * -0.3 + 'px';
     }
 
-    //Move fishes horizontally
-    fish1.style.right = (value - 100) * 1 + 'px';
-    fish2.style.left = (value - fish2move) * 1 + 'px';
-    fish3.style.right = (value - fish3move) * 1 + 'px';
-    fish4.style.left = (value - fish4move) * 1 + 'px';
+    // Move fishes vertically
+    fish1.style.top = fish1BaseTop + (value - 100) * 0.12 + 'px';
+    fish2.style.top = fish2BaseTop + (value - fish2move) * -0.08 + 'px';
+    fish3.style.top = fish3BaseTop + (value - fish3move) * 0.06 + 'px';
+    fish4.style.top = fish4BaseTop + (value - fish4move) * -0.05 + 'px';
 })
 
 
