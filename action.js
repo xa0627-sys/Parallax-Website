@@ -1,27 +1,29 @@
 // Select the class bubble
 time = document.getElementsByClassName('bubbles')[0];
 
-// padding values for desktop
-var fish2move = 100;
-var fish3move = 900;
-var fish4move = 1200;
-
-// Capture initial fish top offsets to enable vertical motion
+// Capture initial fish offsets to enable circular motion
 const fish1BaseTop = parseFloat(getComputedStyle(fish1).top);
 const fish2BaseTop = parseFloat(getComputedStyle(fish2).top);
 const fish3BaseTop = parseFloat(getComputedStyle(fish3).top);
 const fish4BaseTop = parseFloat(getComputedStyle(fish4).top);
+
+const fish1BaseLeft = parseFloat(getComputedStyle(fish1).left);
+const fish2BaseLeft = parseFloat(getComputedStyle(fish2).left);
+const fish3BaseLeft = parseFloat(getComputedStyle(fish3).left);
+const fish4BaseLeft = parseFloat(getComputedStyle(fish4).left);
+
+const fishSwimConfigs = [
+    { element: fish1, top: fish1BaseTop, left: fish1BaseLeft, radius: 35, speed: 0.012, phase: 0 },
+    { element: fish2, top: fish2BaseTop, left: fish2BaseLeft, radius: 45, speed: 0.01, phase: 0.8 },
+    { element: fish3, top: fish3BaseTop, left: fish3BaseLeft, radius: 40, speed: 0.009, phase: 1.6 },
+    { element: fish4, top: fish4BaseTop, left: fish4BaseLeft, radius: 50, speed: 0.008, phase: 2.4 }
+];
 
 if (screen.width < 400) {
 
     //Change transformation duration and translatey for mobile view
     time.style.setProperty('--transform-duration', '15s')
     time.style.setProperty('--transform-y', '-700vh')
-
-    // padding values for mobile
-    fish2move = 1680;
-    fish3move = 3000;
-    fish4move = 4300;
 }
 
 
@@ -55,11 +57,15 @@ window.addEventListener('scroll', function () {
         splash.style.top = 20 + value * -0.3 + 'px';
     }
 
-    // Move fishes vertically
-    fish1.style.top = fish1BaseTop + (value - 100) * 0.12 + 'px';
-    fish2.style.top = fish2BaseTop + (value - fish2move) * -0.08 + 'px';
-    fish3.style.top = fish3BaseTop + (value - fish3move) * 0.06 + 'px';
-    fish4.style.top = fish4BaseTop + (value - fish4move) * -0.05 + 'px';
+    // Move fishes in circular paths using their base offsets
+    fishSwimConfigs.forEach((config) => {
+        const angle = (value * config.speed) + config.phase;
+        const verticalOffset = Math.sin(angle) * config.radius;
+        const horizontalOffset = Math.cos(angle) * config.radius;
+
+        config.element.style.top = config.top + verticalOffset + 'px';
+        config.element.style.left = config.left + horizontalOffset + 'px';
+    });
 })
 
 
